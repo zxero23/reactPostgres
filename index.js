@@ -30,6 +30,16 @@ app.get("/movements", async (req, res) => {
     }
   });
 
+  app.get("/functions", async (req, res) => {
+    try {
+      const allTodos = await pool.query("SELECT * FROM funciones");
+      res.json(allTodos.rows);
+      console.log(allTodos.rows);
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+
 //get a todo
 
 app.get("/movements/:id", async (req, res) => {
