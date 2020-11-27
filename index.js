@@ -20,6 +20,16 @@ app.get("/movements", async (req, res) => {
     }
   });
 
+  app.get("/bankAccounts", async (req, res) => {
+    try {
+      const allTodos = await pool.query("SELECT * FROM cuentas_bancarias where estado=true");
+      res.json(allTodos.rows);
+      console.log(allTodos.rows);
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+
 //get a todo
 
 app.get("/movements/:id", async (req, res) => {
