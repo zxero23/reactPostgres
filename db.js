@@ -1,5 +1,7 @@
 const Pool=require("pg").Pool;
 
+
+//conexion a postgres
 const pool = new Pool({
     user:"postgres",
     password:"admin",
